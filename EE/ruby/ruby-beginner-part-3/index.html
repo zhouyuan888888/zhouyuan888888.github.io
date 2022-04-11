@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Daniel Guo">
+    <meta name="description" content="############# class: getter/setter/to_s ############### ## method `initialize` will be called when you create a new instance of the class by `.new()` ## `@` means it is an instance variable class Hat def initialize(color) @color = color end ## getter def color @color end ## setter, the convention is append `=` to the variable name def color=(new_color) @color = new_color end ## override the default to_s method def to_s &#34;This is a hat and the color is: #{@color}&#34; end end hat = Hat.">
+    <meta name="keywords" content="blog,developer,Java,Docker,Redis,Scala,SpringBoot">
+
+    
+
+    <script data-ad-client="ca-pub-6193773296453862" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ruby beginner: part III"/>
+<meta name="twitter:description" content="############# class: getter/setter/to_s ############### ## method `initialize` will be called when you create a new instance of the class by `.new()` ## `@` means it is an instance variable class Hat def initialize(color) @color = color end ## getter def color @color end ## setter, the convention is append `=` to the variable name def color=(new_color) @color = new_color end ## override the default to_s method def to_s &#34;This is a hat and the color is: #{@color}&#34; end end hat = Hat."/>
+
+    <meta property="og:title" content="Ruby beginner: part III" />
+<meta property="og:description" content="############# class: getter/setter/to_s ############### ## method `initialize` will be called when you create a new instance of the class by `.new()` ## `@` means it is an instance variable class Hat def initialize(color) @color = color end ## getter def color @color end ## setter, the convention is append `=` to the variable name def color=(new_color) @color = new_color end ## override the default to_s method def to_s &#34;This is a hat and the color is: #{@color}&#34; end end hat = Hat." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nkcoder.github.io/posts/ruby/ruby-beginner-part-3/" />
+<meta property="article:published_time" content="2022-02-06T10:33:57+08:00" />
+<meta property="article:modified_time" content="2022-02-06T10:33:57+08:00" />
+
+
+    
+      <base href="https://nkcoder.github.io/posts/ruby/ruby-beginner-part-3/">
+    
+    <title>
+  Ruby beginner: part III · Just Coding
+</title>
+
+    
+      <link rel="canonical" href="https://nkcoder.github.io/posts/ruby/ruby-beginner-part-3/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://nkcoder.github.io/css/coder.min.65305c746ff138250bd5cf256e60457b6187a3dd0a4cb24e69143bafcfd28741.css" integrity="sha256-ZTBcdG/xOCUL1c8lbmBFe2GHo90KTLJOaRQ7r8/Sh0E=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://nkcoder.github.io/css/custom.css" />
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://nkcoder.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://nkcoder.github.io/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.80.0" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light"
+        onload=""
+  >
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://nkcoder.github.io/">
+      Just Coding
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://nkcoder.github.io/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://nkcoder.github.io/categories/">Category</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://nkcoder.github.io/tags/">Tag</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Ruby beginner: part III</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2022-02-06T10:33:57&#43;08:00'>
+                February 6, 2022
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://nkcoder.github.io/categories/ruby/">ruby</a></div>
+
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-ruby" data-lang="ruby"><span style="color:#6272a4">############# class: getter/setter/to_s ###############</span>
+<span style="color:#6272a4">## method `initialize` will be called when you create a new instance of the class by `.new()`</span>
+<span style="color:#6272a4">## `@` means it is an instance variable</span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Hat</span>
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">initialize</span>(color)
+    <span style="color:#8be9fd;font-style:italic">@color</span> <span style="color:#ff79c6">=</span> color
+  <span style="color:#ff79c6">end</span>
+
+  <span style="color:#6272a4">## getter</span>
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">color</span>
+    <span style="color:#8be9fd;font-style:italic">@color</span>
+  <span style="color:#ff79c6">end</span>
+
+  <span style="color:#6272a4">## setter, the convention is append `=` to the variable name</span>
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">color</span><span style="color:#ff79c6">=</span>(new_color)
+    <span style="color:#8be9fd;font-style:italic">@color</span> <span style="color:#ff79c6">=</span> new_color
+  <span style="color:#ff79c6">end</span>
+
+  <span style="color:#6272a4">## override the default to_s method</span>
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">to_s</span>
+    <span style="color:#f1fa8c">&#34;This is a hat and the color is: </span><span style="color:#f1fa8c">#{</span><span style="color:#8be9fd;font-style:italic">@color</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
+  <span style="color:#ff79c6">end</span>
+<span style="color:#ff79c6">end</span>
+
+hat <span style="color:#ff79c6">=</span> Hat<span style="color:#ff79c6">.</span>new(<span style="color:#f1fa8c">&#39;red&#39;</span>)
+<span style="color:#8be9fd;font-style:italic">puts</span> hat
+<span style="color:#8be9fd;font-style:italic">puts</span> hat<span style="color:#ff79c6">.</span>inspect
+<span style="color:#8be9fd;font-style:italic">puts</span> hat<span style="color:#ff79c6">.</span>color
+hat<span style="color:#ff79c6">.</span>color <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;green&#39;</span>
+<span style="color:#8be9fd;font-style:italic">puts</span> hat<span style="color:#ff79c6">.</span>color
+
+<span style="color:#6272a4">## output</span>
+<span style="color:#6272a4"># This is a hat and the color is: red</span>
+<span style="color:#6272a4"># #&lt;Hat:0x00007f9e0d0708e8 @color=&#34;red&#34;&gt;</span>
+<span style="color:#6272a4"># red</span>
+<span style="color:#6272a4"># green</span>
+
+<span style="color:#6272a4">############# class: attr_accessor ###############</span>
+<span style="color:#6272a4">## attr_reader: only getter</span>
+<span style="color:#6272a4">## attr_writer: only setter</span>
+<span style="color:#6272a4">## attr_accessor: both getter and setter</span>
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Hat2</span>
+  <span style="color:#ff79c6">attr_accessor</span> <span style="color:#f1fa8c">:color</span>
+
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">initialize</span>(color)
+    <span style="color:#8be9fd;font-style:italic">@color</span> <span style="color:#ff79c6">=</span> color
+  <span style="color:#ff79c6">end</span>
+
+  <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">to_s</span>
+    <span style="color:#f1fa8c">&#34;This is a hat and the color is: </span><span style="color:#f1fa8c">#{</span><span style="color:#8be9fd;font-style:italic">@color</span><span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>
+  <span style="color:#ff79c6">end</span>
+<span style="color:#ff79c6">end</span>
+
+hat2 <span style="color:#ff79c6">=</span> Hat2<span style="color:#ff79c6">.</span>new(<span style="color:#f1fa8c">&#39;blue&#39;</span>)
+<span style="color:#8be9fd;font-style:italic">puts</span> hat2
+<span style="color:#8be9fd;font-style:italic">puts</span> hat2<span style="color:#ff79c6">.</span>to_s
+<span style="color:#8be9fd;font-style:italic">puts</span> hat2<span style="color:#ff79c6">.</span>color
+
+<span style="color:#6272a4">## output</span>
+<span style="color:#6272a4"># This is a hat and the color is: blue</span>
+<span style="color:#6272a4"># This is a hat and the color is: blue</span>
+<span style="color:#6272a4"># blue</span>
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "nkcoder" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enjoy coding, friends!</p>
+      
+      
+        ©
+        
+        2022
+         Daniel Guo 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-168735975-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+    
+
+  </body>
+
+</html>
