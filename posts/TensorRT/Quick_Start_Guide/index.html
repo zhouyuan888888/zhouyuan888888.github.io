@@ -106,7 +106,7 @@
           <li>Install cudnn using the commond, ``conda cudnn==version'' according to the requirement of tar file.</li>
           <li>After that, we can install TensorRT through the Tar file according to  <a href="https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-tar">official installation guidance.</a> </li>
           <li>Specially, as we want to install TensorRT in Anaconda  virtual environment, there are some additional operations should be conducted. (1) We cannot directly use trtexec command to convert Pytorch or TensorFlow models to onnx. We shuold add  <span style="color:#6272a4">export PATH=~/TensorRT-7.0.0.11/bin: \$PATH</span> and  <span style="color:#6272a4">export LD_LIBRARY_PATH =\$ LD_LIBRARY_PATH:~/TensorRT-7.0.0.11/lib:$LD_LIBRARY_PATH</span> into ~/.bashrc.  </li>
-          <li>As cudnn is installed in virtual environment, we also should add the command <span style="color:#6272a4">export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/home/zhouyuan/anaconda2/envs/tensorrt/lib:\$LD_LIBRARY_PATH</span> in ~/.bashrc. </li>
+          <li>As cudnn is installed in virtual environment, we also should add the command <span style="color:#6272a4">export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/anaconda2/envs/envs_name/lib:\$LD_LIBRARY_PATH</span> in ~/.bashrc. </li>
         </ui>
 
       </div>
