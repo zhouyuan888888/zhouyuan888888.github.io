@@ -21,10 +21,10 @@
 <!--<meta property="og:url" content="https://nkcoder.github.io/posts/ruby/configure-ruby-development/" />-->
 <!--<meta property="article:published_time" content="2021-08-28T20:49:23+08:00" />-->
 <!--<meta property="article:modified_time" content="2021-08-28T20:49:23+08:00" />-->
-      <base href="https://nkcoder.github.io/posts/ruby/configure-ruby-development/">
-    <title>
-  TensorRT Quick Start
-</title>
+<!--      <base href="https://nkcoder.github.io/posts/ruby/configure-ruby-development/">-->
+<!--    <title>-->
+<!--  TensorRT Quick Start-->
+<!--</title>-->
       <link rel="canonical" href="https://nkcoder.github.io/posts/ruby/configure-ruby-development/">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
@@ -42,25 +42,22 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://nkcoder.github.io/">
+    <a class="navigation-title" href="https://zhouyuan888888.github.io/">
       Just Coding
     </a>
     
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
-      
-        
+
           <li class="navigation-item">
-            <a class="navigation-link" href="https://nkcoder.github.io/posts/">Blog</a>
+            <a class="navigation-link" href="https://zhouyuan888888.github.io/posts/">Blog</a>
           </li>
-        
           <li class="navigation-item">
-            <a class="navigation-link" href="https://nkcoder.github.io/categories/">Category</a>
+            <a class="navigation-link" href="https://zhouyuan888888.github.io/categories/">Category</a>
           </li>
-        
           <li class="navigation-item">
-            <a class="navigation-link" href="https://nkcoder.github.io/tags/">Tag</a>
+            <a class="navigation-link" href="https://zhouyuan888888.github.io/tags/">Tag</a>
           </li>
     </ul>
   </section>
@@ -70,14 +67,14 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Configure Ruby development</h1>
+          <h1 class="title">Quick Start Guidance for TensorRT</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2021-08-28T20:49:23&#43;08:00'>
-                August 28, 2021
+              <time datetime='2022-08-28T20:49:23&#43;08:00'>
+                july 16, 2022
               </time>
             </span>
             <span class="reading-time">
@@ -87,12 +84,21 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://nkcoder.github.io/categories/ruby/">ruby</a></div>
+    <a href="https://zhouyuan888888.github.io/categories/TensorRT/">TensorRT</a></div>
         </div>
       </header>
       <div>
-        
-        <h2 id="rbenv">rbenv</h2>
+
+        <h2 id="TensorRT Installation">TensorRT Installation</h2>
+        <p> There are many different ways to install TensorRT, such as: </p>
+        <ui>
+          <li>using a container,</li>
+          <li>using a Debian file,</li>
+          <li> using a Tar file, and</li>
+          <li>using a standalone pip wheel file.</li>
+          <li>....</li>
+        </ui>
+        <p> However, in this blog, I am mainly focusing elaborating the steps about installing TensorRT through a Tar file. <a href="https://docs.nvidia.com/deeplearning/tensorrt/install-guide/index.html#installing-pip">Notice that currently, the TensorRT installed based on a standalone pip wheel file can only support x86_64 CPU</a></div>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># install rbenv, will also install ruby-build</span>
 $ brew install rbenv
 
@@ -102,29 +108,6 @@ $ brew upgrade rbenv ruby-build
 <span style="color:#6272a4"># add `eval &#34;$(rbenv init -)&#34;` to your profile</span>
 $ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;eval &#34;$(rbenv init -)&#34;&#39;</span> &gt;&gt; ~/.zshrc
 
-<span style="color:#6272a4"># also need to add rbenv to PATH, if you have separate homebrew</span>
-$ <span style="color:#8be9fd;font-style:italic">echo</span> <span style="color:#f1fa8c">&#39;export PATH=~/homebrew/bin:$PATH&#39;</span> &gt;&gt; ~/.zshrc
-
-<span style="color:#6272a4"># list latest stable versions</span>
-$ rbenv install -l
-
-<span style="color:#6272a4"># list all local versions</span>
-$ rbenv install -L
-
-<span style="color:#6272a4"># install a Ruby version</span>
-$ rbenv install 3.0.2
-
-<span style="color:#6272a4"># set global version, will be set in ~/.rbenv/version</span>
-$ rbenv global 3.0.2
-
-<span style="color:#6272a4"># set local version, or switch version</span>
-$ rbenv <span style="color:#8be9fd;font-style:italic">local</span> system
-
-<span style="color:#6272a4"># all versions install are located in `~/.rbenv/versions`, to remove a version, just remove the directory.</span>
-$ rm -rf ~/.rbenv/versions/3.0.2
-
-<span style="color:#6272a4"># you can also remove a version by uninstall</span>
-$ rbenv uninstall 3.0.2
 </code></pre></div><h2 id="bundler">bundler</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash"><span style="color:#6272a4"># install Ruby gems</span>
 $ gem install bundler
