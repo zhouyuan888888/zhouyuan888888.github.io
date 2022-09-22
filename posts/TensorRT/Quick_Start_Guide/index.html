@@ -123,7 +123,7 @@ else:
             </code></pre>
             (3) testing model using the engine:
             <pre><code>
-import tensorrt as trt
+              import tensorrt as trt
 import pycuda.driver as cuda
 import pycuda.autoinit
 import numpy as np
@@ -160,8 +160,8 @@ pred = predict(preprocessed_images)
 print("Done warming up!")
 pred = predict(preprocessed_images)
             </code></pre>
-
-
+        Notice that the complete example can be found at <a href="https://github.com/NVIDIA/TensorRT/blob/main/quickstart/IntroNotebooks/4.%20Using%20PyTorch%20through%20ONNX.ipynb"> https://github.com/NVIDIA/TensorRT/blob/main/quickstart/IntroNotebooks/4.%20Using%20PyTorch%20through%20ONNX.ipynb</a>
+          </li>
         </ui>
 
       </div>
