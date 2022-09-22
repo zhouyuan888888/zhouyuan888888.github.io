@@ -108,7 +108,60 @@
           <li>Specially, as we want to install TensorRT in Anaconda  virtual environment, there are some additional operations should be conducted. (1) We cannot directly use trtexec command to convert Pytorch or TensorFlow models to onnx. We shuold add  <span style="color:#6272a4">export PATH=~/TensorRT-7.0.0.11/bin: \$PATH</span> and  <span style="color:#6272a4">export LD_LIBRARY_PATH =\$ LD_LIBRARY_PATH:~/TensorRT-7.0.0.11/lib:$LD_LIBRARY_PATH</span> into ~/.bashrc.  </li>
           <li>As cudnn is installed in virtual environment, we also should add the command <span style="color:#6272a4">export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:~/anaconda2/envs/envs_name/lib:\$LD_LIBRARY_PATH</span> in ~/.bashrc. </li>
           <li>The use of TensorRT with Pytorch model can be summarized in the following: (1) converting Pytorch into onnx:
-            <pre><code>a  </code></pre>
+            <pre><code>
+  resnet50 = models.resnet50(pretrained=True, progress=False).eval()
+  BATCH_SIZE=32
+  dummy_input=torch.randn(BATCH_SIZE, 3, 224, 224)
+  torch.onnx.export(resnet50, dummy_input, "resnet50_pytorch.onnx", verbose=False)
+            </code></pre>
+          (2) using the commond ``trtexec'' to create the engine from the onnx file:
+            <pre><code>
+if USE_FP16:
+  !trtexec --onnx=resnet50_pytorch.onnx --saveEngine=resnet_engine_pytorch.trt  --explicitBatch --inputIOFormats=fp16:chw --outputIOFormats=fp16:chw --fp16
+else:
+  !trtexec --onnx=resnet50_pytorch.onnx --saveEngine=resnet_engine_pytorch.trt  --explicitBatch
+            </code></pre>
+            (3) testing model using the engine:
+            <pre><code>
+import tensorrt as trt
+import pycuda.driver as cuda
+import pycuda.autoinit
+import numpy as np
+
+def predict(batch): # result gets copied into output
+    # transfer input data to device
+    cuda.memcpy_htod_async(d_input, batch, stream)
+    # execute model
+    context.execute_async_v2(bindings, stream.handle, None)
+    # transfer predictions back
+    cuda.memcpy_dtoh_async(output, d_output, stream)
+    # syncronize threads
+    stream.synchronize()
+
+    return output
+
+f = open("resnet_engine_pytorch.trt", "rb")
+runtime = trt.Runtime(trt.Logger(trt.Logger.WARNING))
+engine = runtime.deserialize_cuda_engine(f.read())
+context = engine.create_execution_context()
+
+# need to set input and output precisions to FP16 to fully enable it
+output = np.empty([BATCH_SIZE, 1000], dtype = target_dtype)
+
+# allocate device memory
+d_input = cuda.mem_alloc(1 * input_batch.nbytes)
+d_output = cuda.mem_alloc(1 * output.nbytes)
+
+bindings = [int(d_input), int(d_output)]
+stream = cuda.Stream()
+
+print("Warming up...")
+pred = predict(preprocessed_images)
+print("Done warming up!")
+pred = predict(preprocessed_images)
+            </code></pre>
+
+
         </ui>
 
       </div>
